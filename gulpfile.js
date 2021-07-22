@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var sass = require('gulp-sass');
+
 
 // gulp.task('hola', function () {
 //   console.log('Hola');
@@ -28,8 +30,9 @@ var gulp = require('gulp');
 //En la version 4
 
 gulp.task('sass', function () {
-  return gulp.src('src/style.sass')
-    .pipe(gulp.dest('.tmp'));
+  return gulp.src('src/style.sass') //Leer el archivo
+    .pipe(sass()) //compilar sass
+    .pipe(gulp.dest('.tmp')); //guardar el archivo, crea un archivo style.css listo para el navegador
 });
 
 gulp.task('default', ['sass']);
