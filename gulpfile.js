@@ -35,6 +35,12 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('.tmp')); //guardar el archivo, crea un archivo style.css listo para el navegador
 });
 
+gulp.task('watch', function () {
+  //espera que haya cambios en el archivo style,sass y corre la tarea sass
+  gulp.watch('src/style.sass', ['sass']);
+});
+
+
 gulp.task('default', ['sass']);
 
 
