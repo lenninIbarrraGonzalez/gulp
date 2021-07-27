@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-
+var browserSync = require('browser-sync');
 
 // gulp.task('hola', function () {
 //   console.log('Hola');
@@ -40,6 +40,13 @@ gulp.task('watch', function () {
   gulp.watch('src/style.sass', ['sass']);
 });
 
+gulp.task('serve', ['sass'], function () {
+  browserSync({
+    server: {
+      baseDir: ['.tmp', 'src']
+    }
+  });
+});
 
 gulp.task('default', ['sass']);
 
